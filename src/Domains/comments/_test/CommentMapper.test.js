@@ -11,6 +11,7 @@ describe('CommentMapper', () => {
       content: 'a comment',
       date: '2025-04-15T01:00:00Z',
       isDeleted: false,
+      likeCount: 0,
     });
 
     const replies = [
@@ -43,6 +44,7 @@ describe('CommentMapper', () => {
         content: 'a comment',
         date: '2025-04-15T01:00:00Z',
         isDeleted: false,
+        likeCount: 0,
       }),
       new Comment({
         id: 'comment-456',
@@ -50,6 +52,7 @@ describe('CommentMapper', () => {
         content: 'a comment',
         date: '2025-04-15T01:00:00Z',
         isDeleted: false,
+        likeCount: 1,
       }),
     ];
 
@@ -66,6 +69,7 @@ describe('CommentMapper', () => {
         content: 'a comment',
         date: '2025-04-15T01:00:00Z',
         isDeleted: false,
+        likeCount: 1,
       }),
       {
         id: 'comment-456',
@@ -73,6 +77,7 @@ describe('CommentMapper', () => {
         content: 'a comment',
         date: '2025-04-15T01:00:00Z',
         isDeleted: false,
+        likeCount: 0,
       },
     ];
 
@@ -106,6 +111,7 @@ describe('CommentMapper', () => {
         content: 'a comment',
         date: '2025-04-15T01:00:00Z',
         isDeleted: false,
+        likeCount: 0,
       }),
       new Comment({
         id: 'comment-456',
@@ -113,6 +119,7 @@ describe('CommentMapper', () => {
         content: 'a comment',
         date: '2025-04-15T01:00:00Z',
         isDeleted: false,
+        likeCount: 0,
       }),
     ];
 
@@ -146,6 +153,7 @@ describe('CommentMapper', () => {
         content: 'a comment',
         date: '2025-04-15T01:00:00Z',
         isDeleted: false,
+        likeCount: 1,
       }),
       new Comment({
         id: 'comment-456',
@@ -153,6 +161,7 @@ describe('CommentMapper', () => {
         content: 'a comment',
         date: '2025-04-15T01:00:00Z',
         isDeleted: false,
+        likeCount: 1,
       }),
     ];
 
@@ -197,6 +206,7 @@ describe('CommentMapper', () => {
       content: 'a comment',
       date: '2025-04-15T01:00:00Z',
       isDeleted: false,
+      likeCount: 1,
     });
     expectedComment1.setReplies([
       new Reply({
@@ -223,6 +233,7 @@ describe('CommentMapper', () => {
       content: 'a comment',
       date: '2025-04-15T01:00:00Z',
       isDeleted: false,
+      likeCount: 1,
     });
     expectedComment2.setReplies([
       new Reply({

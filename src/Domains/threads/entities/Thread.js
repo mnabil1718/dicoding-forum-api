@@ -42,9 +42,9 @@ class Thread {
     }
 
     this.comments = comments.map(({
-      id, username, content, date, replies,
+      id, username, content, date, likeCount, replies,
     }) => ({
-      id, username, content, date, replies,
+      id, username, content, date, likeCount, replies,
     }));
   }
 }

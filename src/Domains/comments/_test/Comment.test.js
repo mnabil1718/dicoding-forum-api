@@ -20,6 +20,7 @@ describe('a Comment entity', () => {
       content: false,
       username: 456,
       isDeleted: true,
+      likeCount: '',
     };
 
     expect(() => new Comment(payload)).toThrow('COMMENT.NOT_MEET_DATA_TYPE_SPECIFICATION');
@@ -33,16 +34,18 @@ describe('a Comment entity', () => {
       content: 'Dicoding Comment',
       username: 'user-123',
       isDeleted: true,
+      likeCount: 2,
     };
 
     const {
-      id, username, date, content,
+      id, username, date, content, likeCount,
     } = new Comment(payload);
 
     expect(id).toEqual(payload.id);
     expect(date).toEqual(payload.date);
     expect(content).toEqual(hiddenContent);
     expect(username).toEqual(payload.username);
+    expect(likeCount).toEqual(payload.likeCount);
   });
 
   it('should create Comment object correctly when isDeleted false', () => {
@@ -52,16 +55,18 @@ describe('a Comment entity', () => {
       content: 'Dicoding Comment',
       username: 'user-123',
       isDeleted: false,
+      likeCount: 1,
     };
 
     const {
-      id, username, date, content,
+      id, username, date, content, likeCount,
     } = new Comment(payload);
 
     expect(id).toEqual(payload.id);
     expect(date).toEqual(payload.date);
     expect(content).toEqual(payload.content);
     expect(username).toEqual(payload.username);
+    expect(likeCount).toEqual(payload.likeCount);
   });
 
   it('should throw error when replies is not an array', () => {
@@ -71,6 +76,7 @@ describe('a Comment entity', () => {
       date: '2025-04-15T01:00:00Z',
       content: 'A comment',
       isDeleted: false,
+      likeCount: 0,
     };
 
     const replies = new Reply({
@@ -89,6 +95,7 @@ describe('a Comment entity', () => {
     expect(comment.body).toEqual(payload.body);
     expect(comment.date).toEqual(payload.date);
     expect(comment.username).toEqual(payload.username);
+    expect(comment.likeCount).toEqual(payload.likeCount);
     expect(() => comment.setReplies(replies)).toThrow('COMMENT.REPLIES_NOT_ARRAY');
   });
 
@@ -99,6 +106,7 @@ describe('a Comment entity', () => {
       date: '2025-04-15T01:00:00Z',
       content: 'A comment',
       isDeleted: false,
+      likeCount: 0,
     };
 
     const replies = [
@@ -127,6 +135,7 @@ describe('a Comment entity', () => {
     expect(comment.body).toEqual(payload.body);
     expect(comment.date).toEqual(payload.date);
     expect(comment.username).toEqual(payload.username);
+    expect(comment.likeCount).toEqual(payload.likeCount);
     expect(() => comment.setReplies(replies)).toThrow('COMMENT.REPLIES_CONTAINS_INVALID_MEMBER');
   });
 
@@ -137,6 +146,7 @@ describe('a Comment entity', () => {
       date: '2025-04-15T01:00:00Z',
       content: 'A comment',
       isDeleted: false,
+      likeCount: 1,
     };
 
     const replies = [
@@ -165,6 +175,7 @@ describe('a Comment entity', () => {
     expect(comment.body).toEqual(payload.body);
     expect(comment.date).toEqual(payload.date);
     expect(comment.username).toEqual(payload.username);
+    expect(comment.likeCount).toEqual(payload.likeCount);
     expect(() => comment.setReplies(replies)).not.toThrow();
   });
 });

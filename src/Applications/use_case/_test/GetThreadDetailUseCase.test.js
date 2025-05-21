@@ -88,6 +88,7 @@ describe('GetThreadDetailUseCase', () => {
         date: '2025-05-10',
         content: 'A comment',
         isDeleted: false,
+        likeCount: 0,
       }),
       new Comment({
         id: 'comment-456',
@@ -95,6 +96,7 @@ describe('GetThreadDetailUseCase', () => {
         date: '2025-05-11',
         content: 'A comment 2',
         isDeleted: true,
+        likeCount: 0,
       }),
     ]);
 
@@ -120,6 +122,7 @@ describe('GetThreadDetailUseCase', () => {
           date: '2025-05-10',
           content: 'A comment',
           isDeleted: false,
+          likeCount: 0,
         }),
         new Comment({
           id: 'comment-456',
@@ -127,6 +130,7 @@ describe('GetThreadDetailUseCase', () => {
           date: '2025-05-11',
           content: 'A comment 2',
           isDeleted: true,
+          likeCount: 0,
         }),
       ]));
     mockReplyRepository.getRepliesByThreadId = jest.fn()
@@ -163,6 +167,7 @@ describe('GetThreadDetailUseCase', () => {
         date: '2025-05-11',
         content: 'A comment',
         isDeleted: true,
+        likeCount: 0,
       }),
       new Comment({
         id: 'comment-456',
@@ -170,6 +175,7 @@ describe('GetThreadDetailUseCase', () => {
         date: '2025-05-11',
         content: 'A comment',
         isDeleted: true,
+        likeCount: 0,
       }),
     ];
 
@@ -217,6 +223,7 @@ describe('GetThreadDetailUseCase', () => {
           date: '2025-05-11',
           content: 'A comment',
           isDeleted: true,
+          likeCount: 0,
         }),
         new Comment({
           id: 'comment-456',
@@ -224,6 +231,7 @@ describe('GetThreadDetailUseCase', () => {
           date: '2025-05-11',
           content: 'A comment',
           isDeleted: true,
+          likeCount: 0,
         }),
       ]));
     mockReplyRepository.getRepliesByThreadId = jest.fn()

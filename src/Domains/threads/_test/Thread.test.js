@@ -41,6 +41,7 @@ describe('Thread entity', () => {
       date: '2025-04-15T01:00:00Z',
       content: 'A comment',
       isDeleted: false,
+      likeCount: 0,
     });
 
     const thread = new Thread(payload);
@@ -69,6 +70,7 @@ describe('Thread entity', () => {
         date: '2025-04-15T01:00:00Z',
         content: 'A comment',
         isDeleted: false,
+        likeCount: 1,
       }),
       {
         id: 'comment-456',
@@ -76,6 +78,7 @@ describe('Thread entity', () => {
         date: '2025-04-15T01:00:00Z',
         content: 'A comment',
         isDeleted: true,
+        likeCount: 1,
       },
     ];
 
@@ -104,6 +107,7 @@ describe('Thread entity', () => {
         date: '2025-04-15T01:00:00Z',
         content: 'A comment',
         isDeleted: false,
+        likeCount: 1,
       }),
       new Comment({
         id: 'comment-456',
@@ -111,6 +115,7 @@ describe('Thread entity', () => {
         date: '2025-04-15T02:00:00Z',
         content: 'Another comment',
         isDeleted: true,
+        likeCount: 1,
       }),
     ];
 

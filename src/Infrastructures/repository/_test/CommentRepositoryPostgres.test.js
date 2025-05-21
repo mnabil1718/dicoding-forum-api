@@ -172,6 +172,7 @@ describe('CommentRepositoryPostgres', () => {
           content: 'a new comment',
           isDeleted: false,
           date: commentsRaw[0].created_at.toISOString(),
+          likeCount: 0,
         }),
         new Comment({
           id: 'comment-456',
@@ -179,6 +180,7 @@ describe('CommentRepositoryPostgres', () => {
           content: 'a new comment',
           isDeleted: true,
           date: commentsRaw[1].created_at.toISOString(),
+          likeCount: 0,
         }),
       ]);
     });
