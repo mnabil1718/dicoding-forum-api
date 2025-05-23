@@ -36,6 +36,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Debug .test.env and NODE_ENV
+        run: |
+          echo "NODE_ENV is $NODE_ENV"
+          ls -la
+          cat .test.env || echo "No .test.env file found"
+        env:
+          NODE_ENV: test
       - name: npm install migrate and test
         run: |
           npm install
