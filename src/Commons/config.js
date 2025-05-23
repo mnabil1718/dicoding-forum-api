@@ -6,6 +6,10 @@ if (process.env.NODE_ENV === 'test') {
   dotenv.config({
     path: path.resolve(process.cwd(), '.test.env'),
   });
+} else if (process.env.NODE_ENV === 'development') {
+  dotenv.config({
+    path: path.resolve(process.cwd(), '.dev.env'),
+  });
 } else {
   dotenv.config();
 }
