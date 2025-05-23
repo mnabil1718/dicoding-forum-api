@@ -20,8 +20,6 @@
 #
 limit_req_zone $binary_remote_addr zone=threads_zone:10m rate=90r/m;
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
 
         # SSL configuration
         #
@@ -44,7 +42,7 @@ server {
         # Add index.php to the list if you are using PHP
         index index.html index.htm index.nginx-debian.html;
 
-        server_name _;
+        server_name dry-paths-flow-quickly.a276.dcdg.xyz www.dry-paths-flow-quickly.a276.dcdg.xyz;
 
         location ^~ /threads {
                 limit_req zone=threads_zone burst=10 nodelay;
@@ -82,6 +80,15 @@ server {
         #location ~ /\.ht {
         #       deny all;
         #}
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/dry-paths-flow-quickly.a276.dcdg.xyz/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/dry-paths-flow-quickly.a276.dcdg.xyz/privkey.pem; # managed by Certbot        
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
 }
 
 
@@ -103,3 +110,23 @@ server {
 #               try_files $uri $uri/ =404;
 #       }
 #}
+
+server {
+    if ($host = www.dry-paths-flow-quickly.a276.dcdg.xyz) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = dry-paths-flow-quickly.a276.dcdg.xyz) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name dry-paths-flow-quickly.a276.dcdg.xyz www.dry-paths-flow-quickly.a276.dcdg.xyz;
+    return 404; # managed by Certbot
+
+
+}
